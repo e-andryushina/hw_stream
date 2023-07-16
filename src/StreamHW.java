@@ -48,6 +48,20 @@ public class StreamHW {
         }
         Predicate<Integer> function;
         function = (n) -> (n % 2) == 0;
-        System.out.println("Количество четных чисел в списке: " + numbers.stream().filter(function).peek(System.out::println).count());
+        System.out.println("Количество четных чисел в списке: "
+                +  numbers.stream()
+                .filter(function)
+                .peek(System.out::println)
+                .count());
     }
+
+    List<String> names = Arrays.asList("Ваня", "Петя", "Катя", "Маша");
+
+    List<String> newNames = names.stream()
+            .map(n -> n.substring(1))
+            .sorted()
+            .collect(Collectors.toList());
+
+    System.out.println(newNames);
+
 }
